@@ -1,0 +1,287 @@
+* { box-sizing: border-box; }
+
+/* CSS Reset 
+(removendo espaçamento padrão dos elementos indicados) */
+body, h1, h2, p, figure {
+    margin: 0;
+    padding: 0;
+}
+
+img { max-width: 100%; }
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+a { 
+    text-decoration: none; 
+    color: blue;
+}
+
+header {
+    /* background-color: lightblue; */
+    text-align: center;
+    height: 100px;
+    padding-top: 10px;
+}
+
+h1, nav { text-transform: uppercase; }
+
+/* Regra para formatar o nome do site */
+h1 { font-size: 25px; }
+
+h1 a {
+    color: white;
+    background-color: black;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: Impact, Oswald, Anton, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: normal;
+}
+
+nav {
+    /* background-color: yellow; */
+    margin-top: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Regra de estado inicial do link */
+nav a {
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    transition: 500ms;
+}
+
+/* Regra de acionamento do link */
+nav a:hover, nav a:focus {
+    background-color: #e6e6e6;
+}
+
+/* Regras de conteúdo (articles) */
+.destaque {
+    background-image: 
+            url(../imagens/fundo-destaque.jpg);
+    height: 500px;
+    color: white;
+    text-align: center;
+
+    background-attachment: fixed;    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    /* Alinhando todos os itens juntos, como
+    um conteúdo só (e assim, evitando espaços
+    entre eles) */
+    align-content: center;
+}
+
+.destaque h2 {
+    font-size: 64px;
+    animation-name: aparecer;
+    animation-duration: 2s;
+}
+
+.destaque p {
+    font-size: 32px;
+    font-weight: bold;
+    animation-name: aparecer;
+    animation-duration: 2s;
+
+    /* Atraso no início da animação */
+    animation-delay: 2s;
+
+    /* Faz com que o texto já comece
+    transparente (opacidade 0) após o delay. */
+    animation-fill-mode: backwards;
+}
+
+/* Regra de animação */
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+article h2 { 
+    text-align: center;
+    padding: 20px;
+}
+
+article p { padding: 5px 10px; }
+
+figure { 
+    padding: 0 10px; 
+    text-align: center;
+}
+
+.historia {
+    background-image: 
+        url(../imagens/fundo-madeira.jpg);
+    
+    background-attachment: fixed;
+    color: white;
+    text-shadow: black 1px 1px 3px;
+    text-align: center;
+}
+
+/* .historia iframe, .localizacao iframe {
+    width: 100%;
+    max-width: 650px;
+} */
+.historia iframe {
+    width: 100%;
+    max-width: 650px;
+}
+
+.localizacao { text-align: center; }
+
+.localizacao iframe { width: 100%; }
+
+
+footer {
+    height: 200px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.conteudo {
+    background-color: lavender;
+    border-radius: 10px;
+}
+
+table, td, th {
+    border: solid 2px black;
+
+    /* Remove espaçamento entre as bordas */
+    border-collapse: collapse;
+}
+
+table {
+    margin: auto;
+    width: 80%;
+}
+
+th, td { padding: 5px; }
+
+/* odd (ímpar)    even (par) */
+tr:nth-child(even) { background-color: rgb(241, 241, 187); }
+
+th {
+    background-color: black;
+    color: white;
+}
+
+/* Pseudo-classes: nth-child, first-child, last-child */
+td:first-child { text-transform: uppercase; }
+td:nth-child(2) { color: red; }
+td:last-child { color: blue; }
+
+
+.fotos img {
+    border-radius: 100%;
+    transform: scale(0.8);
+    transition: 500ms;
+    box-shadow: rgba(0, 0, 0, 0.17) 0 0 20px 10px;
+}
+
+.fotos img:hover { transform: scale(1); }
+
+
+/* Regras para elementos do formulário */
+form {
+    background-color: whitesmoke;
+    width: 90%;
+    margin: auto;
+    padding: 16px;
+    border-radius: 5px;
+}
+
+#nome, #email, #nascimento, #assunto, #mensagem, #telefone {
+    width: 100%;
+    height: 40px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 0 2px;
+}
+
+#mensagem { 
+    height: auto; 
+    resize: none; /* não é recomendável */
+}
+
+button {
+    border: none;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+button:hover, button:focus { background-color: darkblue; }
+
+
+
+
+
+/* Regras Condicionais usando Media Queries */
+@media screen and (min-width: 530px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        /* padding: 0 5px; */
+        padding-top: 0;
+    }
+
+    h1 { margin-left: 2vw; }
+
+    nav { 
+        margin-right: 2vw; 
+        margin-top: 0;
+    }
+}
+
+/* Crie uma media query para telas a partir de 800px, em que 
+os seguintes ajustes sejam feitos:
+
+-nome do site: tamanho 30px
+-cabeçalho: altura de 85px
+-menu: largura de 70%
+-links do menu: espaçamento interno de 20px
+-destaque: altura de 550px
+-parágrafos: tamanho 20px
+*/
+
+@media screen and (min-width: 800px) {
+    h1 { font-size: 30px; } 
+
+    header { height: 85px; }
+    
+    nav { width: 70%; }
+    
+    nav a { padding: 20px; }
+    
+    .destaque { height: 550px; }
+    
+    p { font-size: 20px; }
+}
+
+@media screen and (min-width: 1000px) {
+    .limitador {
+        max-width: 1000px;
+        margin: auto;
+    }
+}
+
